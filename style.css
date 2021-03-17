@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+/* 
+---------------
+(1)- Adding body as grid and declaring colors
+---------------
+*/
+
+:root {
+	--primary: hsl(60, 100%, 50%);
+	--accent: hsl(240, 100%, 50%);
+	--negative: hsl(0, 0%, 100%);
+	--shadow: hsl(0, 0%, 0%);
+}
+
+body {
+	width: 100%;
+	display: grid;
+	grid: repeat(12, 80px) / repeat(18, 80px);
+	gap: 10px;
+	overflow-x: hidden;
+}
+
+/* 
+---------------
+(2)- Adding text styling
+---------------
+*/
+
+h1,
+h2,
+h3,
+p {
+	/* text-transform: lowercase; */
+	color: var(--shadow);
+}
+
+/* 
+---------------
+(3)- Fixing header position
+---------------
+*/
+
+header {
+	background-color: var(--primary);
+	border-radius: 0 50px 50px 0;
+	height: 40px;
+	grid-area: 2 / 1 / span 1 / span 9;
+	align-self: flex-end;
+	/* (5)- Adding animation */
+	transform-origin: left;
+	transform: scaleX(0);
+	animation: scaleX 2s ease-out 1s forwards;
+}
+
+/* 
+---------------
+(4)- Adding header animation
+---------------
+*/
+
+@keyframes scaleX {
+	to {
+		transform: scaleX(1);
+	}
+}
+
+/* 
+---------------
+(6)- Fixing aside position
+---------------
+*/
+
+aside {
+	background-color: var(--primary);
+	border-radius: 50px 50px 0 0;
+	width: 20px;
+	grid-area: 7 / 16 / 13 / span 1;
+	justify-self: flex-end;
+	/* (8)- Adding animation */
+	transform-origin: bottom;
+	transform: scaleY(0);
+	animation: scaleY 2s ease-out 0.5s forwards;
+}
+
+/* 
+---------------
+(7)- Adding aside animation
+---------------
+*/
+
+@keyframes scaleY {
+	from {
+		transform: scaleY(0);
+	}
+
+	to {
+		transform: scaleY(1);
+	}
+}
+
+/* 
+---------------
+(9)- fixing main position
+---------------
+*/
+
+main {
+	background-color: var(--primary);
+	border-radius: 0 50px 0 0;
+	grid-area: 5 / 1 / 13 / span 9;
+	/* (11)- Adding animation */
+	transform-origin: bottom left;
+	transform: scale(0);
+	animation: scale 2s ease-out forwards;
+}
+
+/* 
+---------------
+(10)- adding main animation
+---------------
+*/
+
+@keyframes scale {
+	to {
+		transform: scale(1);
+	}
+}
+
+/* 
+---------------
+(12)- Fixing h1 style and position
+---------------
+*/
+
+h1 {
+	font-size: 60px;
+	font-weight: 100;
+	grid-area: 3 / 1 / span 1 / span 9;
+	justify-self: flex-end;
+	/* (14)- Adding animation */
+	opacity: 0;
+	animation: appear 2s ease-out 2s 1 forwards;
+}
+
+/* 
+---------------
+(13)- Adding h1 animation
+---------------
+*/
+
+@keyframes appear {
+	to {
+		opacity: 1;
+	}
+}
+
+/* 
+---------------
+(15)- Fixing h2 style and position
+---------------
+*/
+
+h2 {
+	font-size: 14px;
+	font-weight: 300;
+	writing-mode: vertical-rl;
+	letter-spacing: 2px;
+	word-spacing: 2px;
+	grid-area: 3 / 16 / 8 / span 1;
+	justify-self: flex-end;
+	align-self: flex-end;
+	/* (17)- Adding animation */
+	opacity: 0;
+	transform: translateY(-500px);
+	animation: slideUp 2s cubic-bezier(0.18, 0.89, 0.32, 1.28) 2s forwards;
+}
+
+/* 
+---------------
+(16)- Adding h2 animation
+---------------
+*/
+
+@keyframes slideUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* 
+---------------
+(17)- Fixing p style and position
+---------------
+*/
+
+p {
+	font-size: 37px;
+	font-weight: 100;
+	text-align: right;
+	padding-right: 40px;
+	grid-area: 7 / 13 / 13 / 17;
+	align-self: center;
+	/* (18)- Adding animation */
+	opacity: 0;
+	animation: appear 2s ease-out 2s 1 forwards;
+}
+
+/* 
+---------------
+(19)- Fixing button style and position
+---------------
+*/
+
+button {
+	height: 40px;
+	outline: none;
+	border: none;
+	background-color: var(--accent);
+	color: var(--negative);
+	border-radius: 50px;
+	cursor: pointer;
+	grid-area: 2 / 15 / span 1 / span 2;
+	align-self: flex-end;
+	/* (21)- Adding animation */
+	transform: scale(1) translateX(500px);
+	animation: slideRight 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+	/* (23)- Adding transition */
+	transition: all 0.2s ease-out;
+	box-shadow: 0px 4px 0px 0px rgb(0, 0, 235);
+}
+
+/* 
+---------------
+(20)- Adding button animation
+---------------
+*/
+
+@keyframes slideRight {
+	to {
+		transform: translateX(0);
+	}
+}
+
+/* 
+---------------
+(22)- Adding button hover and active style
+---------------
+*/
+
+button:hover {
+	box-shadow: 0px 2px 0px 0px rgb(0, 0, 235);
+	background-color: rgb(0, 0, 235);
+}
+
+button:active {
+	box-shadow: 0px 0px 0px 0px rgb(0, 0, 235);
+	background-color: rgb(0, 0, 235);
+}
+
+/* 
+---------------
+(24)- Adding h3 styles
+---------------
+*/
+
+h3 {
+	font-size: 97px;
+	text-shadow: 4px 4px 0px var(--accent);
+	/* (27)- Adding animation */
+	transform-origin: left;
+	transform: translateX(-2500px);
+	animation: translateX 2s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+	/* (29)- Adding animation */
+	mix-blend-mode: darken;
+}
+
+/* 
+---------------
+(25)- fixing h3 position
+---------------
+*/
+
+h3:nth-of-type(1) {
+	grid-area: 11 / 6 / span 2 / 17;
+	/* (28)- Adding delay */
+	animation-delay: 2s;
+}
+
+h3:nth-of-type(2) {
+	grid-area: 6 / 2 / span 2 / 17;
+	/* (28)- Adding delay */
+	animation-delay: 3s;
+}
+
+/* 
+---------------
+(26)- Adding h3 animation
+---------------
+*/
+
+@keyframes translateX {
+	to {
+		transform: translateX(0);
+	}
+}
