@@ -29,7 +29,7 @@ body {
 	width: 100%;
 	display: grid;
 	grid: repeat(12, 80px) / repeat(18, 80px);
-	gap: 10px;
+	/* gap: 10px; */
 	overflow-x: hidden;
 }
 
