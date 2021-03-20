@@ -14,307 +14,178 @@
 
 /* 
 ---------------
-(1)- Adding body as grid and declaring colors
+(1)- adding 100% for body
 ---------------
 */
-
-:root {
-	--primary: hsl(60, 100%, 50%);
-	--accent: hsl(240, 100%, 50%);
-	--negative: hsl(0, 0%, 100%);
-	--shadow: hsl(0, 0%, 0%);
-}
 
 body {
 	width: 100%;
 	height: 100vh;
-	display: grid;
-	grid: repeat(12, 80px) / repeat(18, 80px);
-	/* gap: 10px; */
-	overflow-x: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000;
+	overflow: hidden;
 }
 
 /* 
 ---------------
-(2)- Adding text styling
+(2)- adding fill for SVG
 ---------------
 */
 
-h1,
-h2,
-h3,
-p {
-	/* text-transform: lowercase; */
-	color: var(--shadow);
+svg {
+	width: 1920px;
+	height: 1080px;
+}
+
+.background svg path {
+	fill: #3a0d63;
+	/* fill: #ee6e0b; */
+	/* fill: #ffff00; */
+	transition: all 2s ease;
 }
 
 /* 
 ---------------
-(3)- Fixing header position
+(3)- styling button
 ---------------
 */
 
-header {
-	background-color: var(--primary);
-	border-radius: 0 50px 50px 0;
-	height: 40px;
-	grid-area: 2 / 1 / span 1 / span 9;
-	align-self: flex-end;
-	/* (5)- Adding animation */
-	transform-origin: left;
-	transform: scaleX(0);
-	animation: scaleX 2s ease-out 1s forwards;
+section {
+	position: absolute;
+	top: 50%;
+	left: 50px;
+	transform: translateY(-50%);
 }
-
-/* 
----------------
-(4)- Adding header animation
----------------
-*/
-
-@keyframes scaleX {
-	to {
-		transform: scaleX(1);
-	}
-}
-
-/* 
----------------
-(6)- Fixing aside position
----------------
-*/
-
-aside {
-	background-color: var(--primary);
-	border-radius: 50px 50px 0 0;
-	width: 20px;
-	grid-area: 7 / 16 / 13 / span 1;
-	justify-self: flex-end;
-	/* (8)- Adding animation */
-	transform-origin: bottom;
-	transform: scaleY(0);
-	animation: scaleY 2s ease-out 0.5s forwards;
-}
-
-/* 
----------------
-(7)- Adding aside animation
----------------
-*/
-
-@keyframes scaleY {
-	from {
-		transform: scaleY(0);
-	}
-
-	to {
-		transform: scaleY(1);
-	}
-}
-
-/* 
----------------
-(9)- fixing main position
----------------
-*/
-
-main {
-	background-color: var(--primary);
-	border-radius: 0 50px 0 0;
-	grid-area: 5 / 1 / 13 / span 9;
-	/* (11)- Adding animation */
-	transform-origin: bottom left;
-	transform: scale(0);
-	animation: scale 2s ease-out forwards;
-}
-
-/* 
----------------
-(10)- adding main animation
----------------
-*/
-
-@keyframes scale {
-	to {
-		transform: scale(1);
-	}
-}
-
-/* 
----------------
-(12)- Fixing h1 style and position
----------------
-*/
-
-h1 {
-	font-size: 60px;
-	font-weight: 100;
-	grid-area: 3 / 1 / span 1 / span 9;
-	justify-self: flex-end;
-	/* (14)- Adding animation */
-	opacity: 0;
-	animation: appear 2s ease-out 2s 1 forwards;
-}
-
-/* 
----------------
-(13)- Adding h1 animation
----------------
-*/
-
-@keyframes appear {
-	to {
-		opacity: 1;
-	}
-}
-
-/* 
----------------
-(15)- Fixing h2 style and position
----------------
-*/
-
-h2 {
-	font-size: 14px;
-	font-weight: 300;
-	writing-mode: vertical-rl;
-	letter-spacing: 2px;
-	word-spacing: 2px;
-	grid-area: 3 / 16 / 8 / span 1;
-	justify-self: flex-end;
-	align-self: flex-end;
-	/* (17)- Adding animation */
-	opacity: 0;
-	transform: translateY(-500px);
-	animation: slideUp 2s cubic-bezier(0.18, 0.89, 0.32, 1.28) 2s forwards;
-}
-
-/* 
----------------
-(16)- Adding h2 animation
----------------
-*/
-
-@keyframes slideUp {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* 
----------------
-(17)- Fixing p style and position
----------------
-*/
-
-p {
-	font-size: 37px;
-	font-weight: 100;
-	text-align: right;
-	padding-right: 40px;
-	grid-area: 7 / 13 / 13 / 17;
-	align-self: center;
-	/* (18)- Adding animation */
-	opacity: 0;
-	animation: appear 2s ease-out 2s 1 forwards;
-}
-
-/* 
----------------
-(19)- Fixing button style and position
----------------
-*/
 
 button {
-	height: 40px;
 	outline: none;
-	border: none;
-	background-color: var(--accent);
-	color: var(--negative);
-	border-radius: 50px;
+	border: 1px solid #fff;
+	padding: 19px 58px;
+	border-radius: 4px;
+	background-color: transparent;
+	color: #fff;
+	font-size: 17px;
+	font-weight: 900;
+	letter-spacing: 4px;
+	word-spacing: 4px;
 	cursor: pointer;
-	grid-area: 2 / 15 / span 1 / span 2;
-	align-self: flex-end;
-	/* (21)- Adding animation */
-	transform: scale(1) translateX(500px);
-	animation: slideRight 1s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
-	/* (23)- Adding transition */
+	opacity: 1;
 	transition: all 0.2s ease-out;
-	box-shadow: 0px 4px 0px 0px rgb(0, 0, 235);
 }
 
 /* 
 ---------------
-(20)- Adding button animation
----------------
-*/
-
-@keyframes slideRight {
-	to {
-		transform: translateX(0);
-	}
-}
-
-/* 
----------------
-(22)- Adding button hover and active style
+(4)- adding button hover and active
 ---------------
 */
 
 button:hover {
-	box-shadow: 0px 2px 0px 0px rgb(0, 0, 235);
-	background-color: rgb(0, 0, 235);
+	background-color: #fff;
+	color: #000;
 }
 
 button:active {
-	box-shadow: 0px 0px 0px 0px rgb(0, 0, 235);
-	background-color: rgb(0, 0, 235);
+	transform: scale(0.9);
 }
 
 /* 
 ---------------
-(24)- Adding h3 styles
+(11)- adding active class for JavaScript
 ---------------
 */
 
-h3 {
-	font-size: 97px;
-	text-shadow: 4px 4px 0px var(--accent);
-	/* (27)- Adding animation */
-	transform-origin: left;
-	transform: translateX(-2500px);
-	animation: translateX 2s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
-	/* (29)- Adding animation */
-	mix-blend-mode: darken;
+.btn-fade {
+	transition: all 0.3s ease-out 0.2s;
+	visibility: hidden;
+	opacity: 0;
 }
 
 /* 
 ---------------
-(25)- fixing h3 position
+(5)- adding header arrow button and reseting hover
 ---------------
 */
 
-h3:nth-of-type(1) {
-	grid-area: 11 / 6 / span 2 / 17;
-	/* (28)- Adding delay */
-	animation-delay: 2s;
+header {
+	position: absolute;
+	top: 50px;
+	left: 50px;
 }
 
-h3:nth-of-type(2) {
-	grid-area: 6 / 2 / span 2 / 17;
-	/* (28)- Adding delay */
-	animation-delay: 3s;
+.btn-arrow {
+	border: none;
+}
+
+.btn-arrow:hover {
+	background-color: transparent;
+	color: transparent;
 }
 
 /* 
 ---------------
-(26)- Adding h3 animation
+(6)- adding main
 ---------------
 */
 
-@keyframes translateX {
-	to {
-		transform: translateX(0);
-	}
+main {
+	position: absolute;
+	color: #fff;
+	left: 120px;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	/* (8)- hide the image */
+	visibility: hidden;
+	opacity: 0;
+	clip-path: circle(0% at top left);
+	/* (9)- add transition */
+	transition: all 1s ease-out 0.2s;
+}
+
+/* 
+---------------
+(7)- style the text
+---------------
+*/
+
+main h1 {
+	font-size: 220px;
+	font-weight: 100;
+	letter-spacing: -17px;
+	line-height: 154px;
+}
+
+main h2 {
+	font-size: 84px;
+	margin-left: 12px;
+	font-weight: 200;
+}
+
+main h2 span {
+	font-weight: 900;
+}
+
+main h3 {
+	font-size: 54px;
+	font-weight: 200;
+	margin-left: 12px;
+}
+
+main h3 span {
+	font-weight: 900;
+}
+
+/* 
+---------------
+(10)- adding main active class for JavaScript
+---------------
+*/
+
+.main-active {
+	visibility: visible;
+	opacity: 1;
+	clip-path: circle(150% at top left);
+	transition: all 0.5s ease-out;
 }
